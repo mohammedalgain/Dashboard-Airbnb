@@ -16,24 +16,23 @@ dashboard, the workbook includes five supporting sheets:
 
 ## Data
 
-The workbook joins two tables on `listing_id`:
-- **Listings** — one row per property (price, room type, bedrooms, location, host and
-  review fields)
-- **Calendar** — nightly price and availability per listing, which is what drives the
-  dataset's size (listings × days)
+Seattle Airbnb listings data, joined on `listing_id`:
+- **`data/listings.csv`** — 3,819 rows, one per property (price, room type, bedrooms,
+  location, host and review fields)
+- **`data/calendar.csv`** — 1,048,576 rows, nightly price and availability per listing
+  (listings × days), which is what drives the dataset's size
 
-**The underlying dataset isn't included in this repo** — at that size, it doesn't belong
-in git, and it's sourced from a local Excel export rather than something redistributable.
-The workbook's data connection will need to be repointed at your own copy of the same
-listings + calendar tables (Tableau will prompt for this — see below).
+The original workbook also had a Reviews sheet, left out here since only Listings and
+Calendar feed the dashboard.
 
 ## Opening the dashboard
 
 1. Install [Tableau Desktop](https://www.tableau.com/products/desktop) or the free
    [Tableau Public](https://public.tableau.com/) app.
 2. Open `Airbnb_Pricing_Dashboard.twb`.
-3. Tableau will prompt that it can't find the original data source — point it at your
-   own Listings + Calendar Excel file with matching column names.
+3. The workbook's connection points at the original local Excel file, so Tableau will
+   prompt that it can't find the data source — reconnect it to `data/listings.csv` and
+   `data/calendar.csv` (Data → Edit Data Source), keeping the join on `listing_id`.
 
 ## Note on the screenshots
 
